@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gowri Arun Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Fade Section CSS */
+        .fade-section {
+            opacity: 0;
+            transform: translateY(20px); /* Slight upward offset */
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .fade-in {
+            opacity: 1;
+            transform: translateY(0); /* Reset to default position */
+        }
+
+        .fade-out {
+            opacity: 0;
+            transition: opacity 1s ease-out;
+        }
+
+        /* Other CSS */
+        .scrolling-achievements-left,
+        .scrolling-achievements-right {
+            position: fixed;
+            top: 350px;
+            width: 15rem;
+            display: flex;
+            overflow: hidden;
+            margin: 10px 0;
+            z-index: 25;
+        }
+
+        .scrolling-achievements-left {
+            left: 0;
+        }
+
+        .scrolling-achievements-right {
+            right: 0;
+        }
+
+        .loop-slider .inner {
+            display: flex;
+            width: fit-content;
+            animation: loop var(--duration) linear infinite;
+            animation-direction: var(--direction);
+        }
+
+        .tag {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0 0.2rem;
+            font-size: 0.8rem;
+            font-family: 'Press Start 2P', sans-serif; /* Ensures pixel font */
+            background-color: #ff90ac;
+            color: #fff;
+            border: 4px solid #000; /* Adds pixelated border */
+            border-radius: 4px; /* Sharper corners to enhance pixel vibe */
+            padding: 0.5rem 0.7rem;
+            margin-right: 1rem;
+            box-shadow: 0 0.1rem 0.2rem rgb(0 0 0 / 20%),
+                        0 0.1rem 0.5rem rgb(0 0 0 / 30%),
+                        0 0.2rem 1.5rem rgb(0 0 0 / 40%);
+        }
+
+        .tag:hover {
+            background-color: #ffccd5;
+            box-shadow: 0 0 20px #ff90ac; /* Adds a glow effect when hovered */
+        }
+
+        @keyframes loop {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Initial Pink Background Screen -->
+    <div class="intro-screen">
+        <img src="pfp.PNG" alt="Gowri Arun" class="profile-pic large-pfp" id="pfp">
+        <main class="container">
+            <p>Hello 👋 I'm</p>
+            <section class="animation">
+                <div class="first"><div> GOWRI ARUN MENON</div></div>
+                <div class="second"><div>WEB DEVELOPER</div></div>
+                <div class="third"><div>GAME DEVELOPER</div></div>
+            </section>
+        </main>
+        <p class="click-to-enter">CLICK ON PROFILE TO SEE MORE</p>
+    </div>
+
+    <!-- Main Website Content -->
+    <div class="main-content" id="mainContent" style="display: none;">
+        <main>
+            <!-- About Me Section inside a Rectangle -->
+            <section id="profile" class="about-section-rectangle fade-section">
+                <!-- Profile Image in a small circle on top of the text -->
+                <div class="about-image">
+                    <img src="pfp.PNG" alt="Gowri Arun" class="profile-pic small-circle">
+                </div>
+
+                <!-- About Me Text -->
+                <div class="about-text">
+                    <p>HEY! I'M <b>GOWRI ARUN</b>, A 10TH-GRADE STUDENT AT ST. MARY’S CATHOLIC HIGH SCHOOL, FUJAIRAH, UAE. I’M SUPER INTO TECH, CODING, AND POETRY. WHEN I’M NOT CODING, I LOVE WRITING—IT’S A GREAT WAY TO RELAX AND CLEAR MY MIND.</p>
+                    <p>I WAS BORN IN INDIA BUT OUR FAMILY TRAVELS A LOT SO I'VE LIVED ALONG MIDDLE EAST AND AFRICA FOR MOST OF MY CHILDHOOD!</p>
+                    <p>I'M PRETTY GOOD AT PYTHON AND DATA SCIENCE, I'VE ALSO PICKED UP SOME HTML, C++ AND JAVASCRIPT.</p>
+                    <p><b>Gowriarunn2008@gmail.com</b></p>
+                </div>
+
+                <!-- Logos Section inside the Rectangle -->
+                <div class="certificates-container">
+                    <div class="logo-container">
+                        <img src="adnoclogo.png" alt="ADNOC" class="logo glowing-logo" onclick="toggleCertificates('adnoc-certs')">
+                        <img src="boltlogo.png" alt="Bolt" class="logo glowing-logo" onclick="toggleCertificates('bolt-certs')">
+                        <img src="harvardlogo.png" alt="Harvard" class="logo glowing-logo" onclick="toggleCertificates('harvard-certs')">
+                        <img src="IBMLOGO.jpg" alt="IBM" class="logo glowing-logo" onclick="toggleCertificates('ibm-certs')">
+                        <img src="stanfordlogo.png" alt="Stanford" class="logo glowing-logo" onclick="toggleCertificates('stanford-certs')">
+                    </div>
+
+                    <!-- Certificates -->
+                    <div id="adnoc-certs" class="certification">
+                        <h3>ADNOC STEM for Life Talented Youth in Industry</h3>
+                        <img src="ADNOC.png" alt="ADNOC Certificate" class="certificate-img">
+                    </div>
+                    
+                    <div id="bolt-certs" class="certification">
+                        <h3>Web Development Course by Bolt</h3>
+                        <img src="Bolt.png" alt="Bolt Certificate" class="certificate-img">
+                    </div>
+                    
+                    <div id="harvard-certs" class="certification">
+                        <h3>Harvard Certification</h3>
+                        <img src="harvard.png" alt="Harvard Certificate" class="certificate-img">
+                    </div>
+                    
+                    <div id="ibm-certs" class="certification">
+                        <h3>Python Basics for Data Science by IBM</h3>
+                        <img src="IBM data science.png" alt="IBM Certificate" class="certificate-img">
+                    </div>
+                    
+                    <div id="stanford-certs" class="certification">
+                        <h3>Stanford C++ Course</h3>
+                        <img src="Stanford.png" alt="Stanford Certificate" class="certificate-img">
+                    </div>
+            </section>
+
+            <!-- Scrolling Achievements -->
+            <div class="scrolling-achievements-left fade-section" id="tabs-section">
+                <div class="loop-slider" style="--duration:15951ms; --direction:normal;">
+                    <div class="inner">
+                        <div class="tag">C++</div>
+                        <div class="tag">Python</div>
+                        <div class="tag">Game Design</div>
+                        <div class="tag">HTML</div>
+                        <div class="tag">Web Design</div>
+                        <div class="tag">JavaScript</div>
+                        <div class="tag">Machine Learning</div>
+                        <div class="tag">YOLOv5</div>
+                        <div class="tag">C++</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="scrolling-achievements-right fade-section" id="tabs-section">
+                <div class="loop-slider" style="--duration:15951ms; --direction:reverse;">
+                    <div class="inner">
+                        <div class="tag">Artificial Intelligence</div>
+                        <div class="tag">Data Science</div>
+                        <div class="tag">Numpy</div>
+                        <div class="tag">Pandas</div>
+                        <div class="tag">React JS</div>
+                        <div class="tag">YOLOv5</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Music Player -->
+            <section class="audio-section fade-section" id="audioSection">
+                <div class="audio-player">
+                    <img src="albumcover.gif" alt="Album Cover" class="album-cover">
+                    <p>FALLING FOR YOU!</p>
+                    <audio controls>
+                        <source src="falling for you.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+            </section>
+
+            <!-- Game Section -->
+            <section class="game-section fade-section" id="gameSection">
+                <div class="game-container">
+                    <div id="thumbnail">
+                        <img src="snakelogo.gif" alt="Snake Game Thumbnail" id="gameThumbnail">
+                    </div>
+                    <a href="https://replit.com/@GowriArunMenon/snake-game" target="_blank" class="button-56">Play Game</a>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer>
+                <div class="footer-content">
+                    <p>&copy; 2024 Gowri Arun. All rights reserved.</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/gowri-arun-153480213/" target="_blank">
+                            <img src="C:\Users\gowri\Documents\edits\visualStudio\linkedin.png" alt="LinkedIn">
+                        </a>
+                        <a href="https://www.instagram.com/gow.ri.ii/" target="_blank">
+                            <img src="C:\Users\gowri\Documents\edits\visualStudio\insta.png" alt="Instagram">
+                        </a>
+                        <a href="https://github.com/Gowriarun" target="_blank">
+                            <img src="C:\Users\gowri\Documents\edits\visualStudio\github.png" alt="GitHub">
+                        </a>
+                        <a href="https://replit.com/@GowriArunMenon" target="_blank">
+                            <img src="C:\Users\gowri\Documents\edits\visualStudio\replit.png" alt="Replit">
+                        </a>
+                    </div>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        window.onload = function() {
+            document.getElementById('pfp').addEventListener('click', function() {
+                document.querySelector('.intro-screen').classList.add('fade-out');
+                setTimeout(function() {
+                    document.querySelector('.intro-screen').style.display = 'none';
+                    document.getElementById('mainContent').style.display = 'block';
+                    document.body.style.overflowY = 'scroll';
+
+                    // Cascade Fade-In for sections
+                    setTimeout(() => document.getElementById('profile').classList.add('fade-in'), 200); // Profile/About Me
+                    setTimeout(() => document.getElementById('certifications-section').classList.add('fade-in'), 800); // Certifications
+                    setTimeout(() => document.getElementById('audioSection').classList.add('fade-in'), 1400); // Music Player
+                    setTimeout(() => document.getElementById('gameSection').classList.add('fade-in'), 2000); // Game Section
+                    setTimeout(() => document.getElementById('tabs-section').classList.add('fade-in'), 2600); // Moving Tabs
+
+                }, 1000); // Wait for intro fade-out
+            });
+        };
+
+        function toggleCertificates(certId) {
+        const certs = document.querySelectorAll('.certification');
+        
+        certs.forEach(cert => {
+            if (cert.id === certId) {
+                // If the clicked logo corresponds to the currently hidden certificate, reveal it
+                if (!cert.classList.contains('show')) {
+                    cert.classList.add('show');
+                }
+            } else {
+                // Hide any other open certificates
+                cert.classList.remove('show');
+            }
+        });
+    }
+    window.addEventListener('scroll', function() {
+    const sections = document.querySelectorAll('.section-content');
+    sections.forEach(section => {
+      const sectionTop = section.getBoundingClientRect().top;
+      const windowHeight = window.innerHeight;
+  
+      if (sectionTop < windowHeight * 0.9) {
+        section.classList.add('visible');
+      }
+    });
+  });
+  
+    </script>
+</body>
+</html>
